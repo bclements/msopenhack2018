@@ -1,0 +1,28 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "cosmosDB",
+      "name": "taskDocument",
+      "databaseName": "OpenHack",
+      "collectionName": "ratings",
+      "createIfNotExists": false,
+      "connectionStringSetting": "openhack-rondagdagdb_DOCUMENTDB",
+      "direction": "out"
+    },
+    {
+      "type": "http",
+      "name": "res",
+      "direction": "out"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ],
+      "route": "GetRatings/{id}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "cosmosDB",
+      "name": "taskDocument",
+      "databaseName": "OpenHack",
+      "collectionName": "ratings",
+      "connectionStringSetting": "openhack-rondagdagdb_DOCUMENTDB",
+      "direction": "in",
+      "sqlQuery": "SELECT * FROM c WHERE c.userId={id}"
+    }
+  ]
+}
